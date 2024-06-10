@@ -29,7 +29,7 @@ jobs:
     permissions:
       contents: read
       deployments: write
-    needs: [cache-and-install]
+    needs: [cache-and-install, lint, check]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
