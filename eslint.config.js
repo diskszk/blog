@@ -31,7 +31,7 @@ export default [
     },
   },
   {
-    files: ["src/pages/*.astro"],
+    files: ["src/pages/**/*.astro"],
     languageOptions: {
       parser: astroEslintParser,
       parserOptions: {
