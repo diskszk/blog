@@ -1,9 +1,9 @@
-name: Compile check
+name: Check
 on:
   workflow_call:
 
 jobs:
-  compile-check:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
