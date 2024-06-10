@@ -1,0 +1,26 @@
+name: Deploy to Cloudflare Pages on PR
+on:
+  pull_request:
+
+jobs:
+  cache-and-install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 21
+          cache: "pnpm"
+      - run: pnpm install
+
+  lint:
+    needs: [cache-and-install]
+    uses: ./.github/workflows/lint.yml
+  check:
+    needs: [cache-and-install]
+    uses: ./.github/workflows/check.yml
