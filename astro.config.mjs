@@ -4,4 +4,8 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   integrations: [react()],
+  server: {
+    port: 3000,
+    open: true,
+  },
 });
