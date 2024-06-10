@@ -1,10 +1,8 @@
-import { Button } from "./Button";
 import { useState } from "react";
-
+import { Button } from "./Button";
 
 export const About: React.FC = () => {
   const lang = "jp";
-
   const [x, setX] = useState(0);
 
   return (

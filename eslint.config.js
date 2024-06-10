@@ -15,12 +15,12 @@ import astroEslintParser from "astro-eslint-parser";
 // jsx
 import stylisticPluginJSX from "@stylistic/eslint-plugin-jsx";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
-import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 
 /** @type {import("eslint").Linter.FlatConfig[]} */
 export default [
   js.configs.recommended,
   ...eslintPluginAstro.configs["flat/recommended"],
+  ...eslintPluginAstro.configs["flat/jsx-a11y-recommended"],
   ...tseslint.configs.recommended,
   {
     languageOptions: {
@@ -41,6 +41,7 @@ export default [
     },
     rules: {
       "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+      "@stylistic/no-tabs": ["error", { allowIndentationTabs: true }],
     },
   },
   {
@@ -63,12 +64,17 @@ export default [
     plugins: {
       "@stylistic/jsx": stylisticPluginJSX,
       "react-hooks": reactHooksPlugin,
-      "jsx-a11y": jsxA11yPlugin,
     },
     rules: {
       ...stylisticPluginJSX.configs["all-flat"].rules,
       ...reactHooksPlugin.configs.recommended.rules,
-      ...jsxA11yPlugin.configs.recommended.rules,
+      "@stylistic/jsx/jsx-one-expression-per-line": [
+        "error",
+        { allow: "single-child" },
+      ],
+      "@stylistic/jsx/jsx-newline": ["error", { prevent: true }],
+      "@stylistic/jsx/jsx-indent": ["error", 2],
+      "@stylistic/jsx/jsx-indent-props": ["error", 2],
     },
   },
   {
@@ -131,12 +137,7 @@ export default [
       ...stylistic.configs["recommended-flat"].rules,
       "@stylistic/quotes": ["error", "double"],
       "@stylistic/semi": ["error", "always"],
-      // TODO: off のものを調べて極力 Error にする
-      "@stylistic/no-tabs": "off",
-      "@stylistic/jsx-indent": "off",
-      "@stylistic/no-trailing-spaces": "off",
-      "@stylistic/no-multiple-empty-lines": "off",
-      "@stylistic/object-curly-spacing": "off",
+      "@stylistic/jsx-indent": ["error", 2],
     },
   },
 ];
