@@ -24,3 +24,30 @@ jobs:
   check:
     needs: [cache-and-install]
     uses: ./.github/workflows/check.yml
+
+  build_and_deploy:
+    permissions:
+      contents: read
+      deployments: write
+    needs: [cache-and-install, lint, check]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: false
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 21
+          cache: "pnpm"
+      - run: pnpm install
+      - run: pnpm build
+      - name: Publish
+        uses: cloudflare/pages-action@v1
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          projectName: blog
+          directory: ./dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
