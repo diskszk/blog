@@ -31,7 +31,7 @@ export default [
     },
   },
   {
-    files: ["src/pages/**/*.astro"],
+    files: ["src/**/*.astro"],
     languageOptions: {
       parser: astroEslintParser,
       parserOptions: {
@@ -107,7 +107,12 @@ export default [
         "never",
         {
           ignorePackages: true,
-          pattern: { css: "always", json: "always", svg: "always" },
+          pattern: {
+            css: "always",
+            json: "always",
+            svg: "always",
+            astro: "always",
+          },
         },
       ],
       "import/no-internal-modules": [
