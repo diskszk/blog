@@ -112,6 +112,7 @@ export default [
             json: "always",
             svg: "always",
             astro: "always",
+            jpeg: "always",
           },
         },
       ],

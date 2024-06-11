@@ -1,31 +1,40 @@
 ---
 import "@/styles/initialize";
+import { Theme, Container } from "@radix-ui/themes";
 import { Header } from "@/components";
-import { ThemeProvider } from "./ThemeProvider";
 
 type Props = {
   title: string
 };
 const { title } = Astro.props;
+const { pathname } = Astro.url;
 ---
 
   <html lang="en">
     <head>
       <meta charset="utf-8" />
-      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+      { /* eslint-disable-next-line @stylistic/jsx-tag-spacing */}
+      <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🦕</text></svg>">
       <meta name="viewport" content="width=device-width" />
       <meta name="generator" content={Astro.generator} />
       <title>{title}</title>
     </head>
     <body>
-      <ThemeProvider>
-        <Header />
-        <slot />
-        <footer>
-          <p>
-            thanks.
-          </p>
-        </footer>
-      </ThemeProvider>
+      <Theme
+        accentColor="mint"
+        grayColor="auto"
+        radius="medium"
+      >
+        <Container size="3">
+          <Header currentPath={pathname.split("/")[1] || ""} />
+          <slot />
+          <footer>
+            <p>
+              thanks.
+            </p>
+          </footer>
+        </Container>
+      </Theme>
     </body>
   </html>
