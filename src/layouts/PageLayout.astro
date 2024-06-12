@@ -1,10 +1,10 @@
 ---
 import "@/styles/initialize";
 import { Theme, Container } from "@radix-ui/themes";
-import { Header } from "@/components";
+import { Header, Footer } from "@/components";
 
 type Props = {
-  title: string
+  title: string;
 };
 const { title } = Astro.props;
 const { pathname } = Astro.url;
@@ -20,7 +20,9 @@ const { pathname } = Astro.url;
       <meta name="generator" content={Astro.generator} />
       <title>{title}</title>
     </head>
+
     <body>
+      <!-- jsxに移す -->
       <Theme
         accentColor="mint"
         grayColor="auto"
@@ -29,11 +31,7 @@ const { pathname } = Astro.url;
         <Container size="3">
           <Header currentPath={pathname.split("/")[1] || ""} />
           <slot />
-          <footer>
-            <p>
-              thanks.
-            </p>
-          </footer>
+          <Footer />
         </Container>
       </Theme>
     </body>

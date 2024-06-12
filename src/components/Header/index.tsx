@@ -1,5 +1,5 @@
-import { Flex, Heading, IconButton, TabNav, Box } from "@radix-ui/themes";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { Flex, Heading, IconButton, TabNav, Box } from "@radix-ui/themes";
 import { siteConfig } from "@/siteConfig";
 import { border, radius } from "./style.css";
 
@@ -21,7 +21,11 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
         px="24px"
       >
         <Flex gap="8px">
-          <Box height={iconSize} m="auto" width={iconSize}>
+          <Box
+            height={iconSize}
+            m="auto"
+            width={iconSize}
+          >
             <img
               alt="アイコン画像"
               className={radius}
@@ -30,11 +34,19 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
               width={iconSize}
             />
           </Box>
-          <Heading as="h1" size="8" weight="regular" align="center">
+          <Heading
+            align="center"
+            as="h1"
+            size="8"
+            weight="regular"
+          >
             {siteConfig.siteName}
           </Heading>
         </Flex>
-        <Flex align="center" gap="16px">
+        <Flex
+          align="center"
+          gap="16px"
+        >
           <TabNav.Root>
             <TabNav.Link
               active={currentPath === "blog" || !currentPath}
@@ -42,20 +54,33 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
             >
               Blog
             </TabNav.Link>
-            <TabNav.Link active={currentPath === "about"} href="/about">
+            <TabNav.Link
+              active={currentPath === "about"}
+              href="/about"
+            >
               About
             </TabNav.Link>
-            <TabNav.Link active={"dev" === currentPath} href="#">
+            <TabNav.Link
+              active={"dev" === currentPath}
+              href="#"
+            >
               Document
             </TabNav.Link>
           </TabNav.Root>
-          <IconButton asChild color="gray" variant="ghost">
+          <IconButton
+            asChild
+            color="gray"
+            variant="ghost"
+          >
             <a
               href={siteConfig.repoURL}
               rel="noopener noreferrer"
               target="_blank"
             >
-              <GitHubLogoIcon height="36px" width="36px" />
+              <GitHubLogoIcon
+                height="36px"
+                width="36px"
+              />
             </a>
           </IconButton>
         </Flex>
