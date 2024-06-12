@@ -20,7 +20,7 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
         pt="8px"
         px="24px"
       >
-        <Flex gap="8px">
+        <Flex gapX="8px">
           <Box
             height={iconSize}
             m="auto"

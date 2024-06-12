@@ -119,7 +119,10 @@ export default [
       "import/no-internal-modules": [
         "warn",
         {
-          allow: ["@*/**"],
+          allow: [
+            "@*/**",
+            "**/layouts/**/index.astro",
+          ],
         },
       ],
       "unused-imports/no-unused-imports": "error",
