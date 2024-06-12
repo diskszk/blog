@@ -164,6 +164,7 @@ export default [
           multilineDetection: "brackets",
         },
       ],
+      "@typescript-eslint/triple-slash-reference": ["warn", { path: "always" }],
     },
   },
 ];
