@@ -1,5 +1,5 @@
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { Flex, Heading, IconButton, TabNav, Box } from "@radix-ui/themes";
+import { Flex, Heading, IconButton, TabNav, Box, Button } from "@radix-ui/themes";
 import { siteConfig } from "@/siteConfig";
 import { border, radius } from "./style.css";
 
@@ -21,27 +21,35 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
         px="24px"
       >
         <Flex gapX="8px">
-          <Box
-            height={iconSize}
-            m="auto"
-            width={iconSize}
+          <Button
+            asChild
+            color="gray"
+            variant="ghost"
           >
-            <img
-              alt="アイコン画像"
-              className={radius}
-              height={iconSize}
-              src={siteConfig.userIcon.src}
-              width={iconSize}
-            />
-          </Box>
-          <Heading
-            align="center"
-            as="h1"
-            size="8"
-            weight="regular"
-          >
-            {siteConfig.siteName}
-          </Heading>
+            <a href="/">
+              <Box
+                height={iconSize}
+                m="auto"
+                width={iconSize}
+              >
+                <img
+                  alt="アイコン画像"
+                  className={radius}
+                  height={iconSize}
+                  src={siteConfig.userIcon.src}
+                  width={iconSize}
+                />
+              </Box>
+              <Heading
+                align="center"
+                as="h1"
+                size="8"
+                weight="regular"
+              >
+                {siteConfig.siteName}
+              </Heading>
+            </a>
+          </Button>
         </Flex>
         <Flex
           align="center"
@@ -60,12 +68,6 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
             >
               About
             </TabNav.Link>
-            <TabNav.Link
-              active={"dev" === currentPath}
-              href="#"
-            >
-              Document
-            </TabNav.Link>
           </TabNav.Root>
           <IconButton
             asChild
@@ -78,6 +80,7 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
               target="_blank"
             >
               <GitHubLogoIcon
+                color="black"
                 height="36px"
                 width="36px"
               />
