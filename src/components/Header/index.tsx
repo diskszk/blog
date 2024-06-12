@@ -26,7 +26,10 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
             color="gray"
             variant="ghost"
           >
-            <a href="/">
+            <a
+              aria-label="Homeへのリンク"
+              href="/"
+            >
               <Box
                 height={iconSize}
                 m="auto"
@@ -75,6 +78,7 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
             variant="ghost"
           >
             <a
+              aria-label="GitHubリポジトリへのリンク"
               href={siteConfig.repoURL}
               rel="noopener noreferrer"
               target="_blank"
