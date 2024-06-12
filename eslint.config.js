@@ -15,6 +15,7 @@ import astroEslintParser from "astro-eslint-parser";
 // jsx
 import stylisticPluginJSX from "@stylistic/eslint-plugin-jsx";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
+import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 
 /** @type {import("eslint").Linter.FlatConfig[]} */
 export default [
@@ -64,10 +65,12 @@ export default [
     plugins: {
       "@stylistic/jsx": stylisticPluginJSX,
       "react-hooks": reactHooksPlugin,
+      "jsx-a11y": jsxA11yPlugin,
     },
     rules: {
       ...stylisticPluginJSX.configs["all-flat"].rules,
       ...reactHooksPlugin.configs.recommended.rules,
+      ...jsxA11yPlugin.configs.recommended.rules,
       "@stylistic/jsx/jsx-one-expression-per-line": [
         "error",
         { allow: "single-child" },
