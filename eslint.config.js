@@ -31,7 +31,7 @@ export default [
     },
   },
   {
-    files: ["src/pages/**/*.astro"],
+    files: ["src/**/*.astro"],
     languageOptions: {
       parser: astroEslintParser,
       parserOptions: {
@@ -80,7 +80,7 @@ export default [
   {
     files: ["src/**/*.{ts,tsx,astro}"],
     plugins: {
-      import: importPlugin,
+      "import": importPlugin,
       "unused-imports": unusedImportsPlugin,
       "@stylistic": stylistic,
     },
@@ -91,7 +91,7 @@ export default [
         "error",
         {
           "newlines-between": "never",
-          pathGroups: [
+          "pathGroups": [
             {
               pattern: "@/**",
               group: "external",
@@ -107,13 +107,22 @@ export default [
         "never",
         {
           ignorePackages: true,
-          pattern: { css: "always", json: "always", svg: "always" },
+          pattern: {
+            css: "always",
+            json: "always",
+            svg: "always",
+            astro: "always",
+            jpeg: "always",
+          },
         },
       ],
       "import/no-internal-modules": [
         "warn",
         {
-          allow: ["@*/**"],
+          allow: [
+            "@*/**",
+            "**/layouts/**/index.astro",
+          ],
         },
       ],
       "unused-imports/no-unused-imports": "error",
@@ -138,6 +147,20 @@ export default [
       "@stylistic/quotes": ["error", "double"],
       "@stylistic/semi": ["error", "always"],
       "@stylistic/jsx-indent": ["error", 2],
+      "@stylistic/member-delimiter-style": [
+        "error",
+        {
+          multiline: {
+            delimiter: "semi",
+            requireLast: true,
+          },
+          singleline: {
+            delimiter: "semi",
+            requireLast: false,
+          },
+          multilineDetection: "brackets",
+        },
+      ],
     },
   },
 ];
