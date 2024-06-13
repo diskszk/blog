@@ -18,6 +18,8 @@ export const Layout: React.FC<Props> = ({ pathname, children }) => (
       <Flex
         direction="column"
         minHeight={`calc(100vh - ${styles.headerHeight} - ${styles.footerHeight})`}
+        px="64px"
+        py="24px"
         role="main"
       >
         {children}
