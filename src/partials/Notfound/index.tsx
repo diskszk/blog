@@ -2,8 +2,8 @@ import { Flex, Heading } from "@radix-ui/themes";
 
 export const Notfound: React.FC = () => (
   <Flex
-    align="center"
     justify="center"
+    my="auto"
     pb="64px"
     width="100%"
   >

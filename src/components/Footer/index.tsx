@@ -1,4 +1,5 @@
 import { Flex, Text } from "@radix-ui/themes";
+import { styles } from "@/constants";
 import { border } from "./styles.css";
 
 export const Footer: React.FC = () => (
@@ -6,7 +7,7 @@ export const Footer: React.FC = () => (
     <Flex
       align="center"
       className={border}
-      height="64px"
+      height={styles.footerHeight}
       px="16px"
     >
       <Text color="gray">

@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
-import { Theme, Container } from "@radix-ui/themes";
+import { Theme, Container, Flex } from "@radix-ui/themes";
 import { Header, Footer } from "@/components";
-import { mainContainer } from "./styles.css";
+import { styles } from "@/constants";
 
 type Props = {
   pathname: string;
@@ -15,9 +15,15 @@ export const Layout: React.FC<Props> = ({ pathname, children }) => (
   >
     <Container size="3">
       <Header currentPath={pathname.split("/")[1] || ""} />
-      <main className={mainContainer}>
+      <Flex
+        direction="column"
+        minHeight={`calc(100vh - ${styles.headerHeight} - ${styles.footerHeight})`}
+        px="64px"
+        py="24px"
+        role="main"
+      >
         {children}
-      </main>
+      </Flex>
       <Footer />
     </Container>
   </Theme>

@@ -1,6 +1,7 @@
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { Flex, Heading, IconButton, TabNav, Box, Button } from "@radix-ui/themes";
 import { siteConfig } from "@/siteConfig";
+import { styles } from "@/constants";
 import { border, radius } from "./style.css";
 
 type Props = {
@@ -15,7 +16,7 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
       <Flex
         align="center"
         className={border}
-        height="112px"
+        height={styles.headerHeight}
         justify="between"
         pt="8px"
         px="24px"
@@ -66,10 +67,10 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
               Blog
             </TabNav.Link>
             <TabNav.Link
-              active={currentPath === "about"}
-              href="/about"
+              active={currentPath === "profile"}
+              href="/profile"
             >
-              About
+              Profile
             </TabNav.Link>
           </TabNav.Root>
           <IconButton
