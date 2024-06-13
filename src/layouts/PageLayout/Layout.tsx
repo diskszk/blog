@@ -7,24 +7,44 @@ type Props = {
   pathname: string;
   children: ReactNode;
 };
-export const Layout: React.FC<Props> = ({ pathname, children }) => (
-  <Theme
-    accentColor="mint"
-    grayColor="auto"
-    radius="medium"
-  >
-    <Container size="3">
-      <Header currentPath={pathname.split("/")[1] || ""} />
-      <Flex
-        direction="column"
-        minHeight={`calc(100vh - ${styles.headerHeight} - ${styles.footerHeight})`}
-        px="64px"
-        py="24px"
-        role="main"
+
+export const Layout: React.FC<Props> = ({ pathname, children }) => {
+  const mainHeight = {
+    sp: `calc(100vh - ${styles.headerHeight.sp} - ${styles.footerHeight.sp})`,
+    pc: `calc(100vh - ${styles.headerHeight.pc} - ${styles.footerHeight.pc})`,
+  };
+
+  return (
+    <Theme
+      accentColor="mint"
+      grayColor="auto"
+      radius="medium"
+    >
+      <Container
+        size={{
+          initial: "1",
+          sm: "2",
+          md: "3",
+        }}
       >
-        {children}
-      </Flex>
-      <Footer />
-    </Container>
-  </Theme>
-);
+        <Header currentPath={pathname.split("/")[1] || ""} />
+        <Flex
+          direction="column"
+          minHeight={{
+            initial: mainHeight.sp,
+            sm: mainHeight.pc,
+          }}
+          px={{
+            initial: "16px",
+            sm: "64px",
+          }}
+          py="24px"
+          role="main"
+        >
+          {children}
+        </Flex>
+        <Footer />
+      </Container>
+    </Theme>
+  );
+};

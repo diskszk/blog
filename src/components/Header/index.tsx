@@ -1,5 +1,12 @@
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { Flex, Heading, IconButton, TabNav, Box, Button } from "@radix-ui/themes";
+import { GitHubLogoIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
+import {
+  Flex,
+  Heading,
+  IconButton,
+  TabNav,
+  Box,
+  Button,
+} from "@radix-ui/themes";
 import { siteConfig } from "@/siteConfig";
 import { styles } from "@/constants";
 import { anchor, border, radius } from "./style.css";
@@ -16,12 +23,39 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
       <Flex
         align="center"
         className={border}
-        height={styles.headerHeight}
+        height={{
+          initial: styles.headerHeight.sp,
+          sm: styles.headerHeight.pc,
+        }}
         justify="between"
-        pt="8px"
+        pt={{
+          initial: "0px",
+          sm: "8px",
+        }}
         px="24px"
       >
-        <Flex gapX="8px">
+        <Flex
+          display={{
+            initial: "flex",
+            sm: "none",
+          }}
+          mr="-32px"
+        >
+          <IconButton
+            color="gray"
+            radius="medium"
+            variant="outline"
+          >
+            <HamburgerMenuIcon />
+          </IconButton>
+        </Flex>
+        <Flex
+          gapX="8px"
+          mx={{
+            initial: "auto",
+            sm: "0",
+          }}
+        >
           <Button
             asChild
             className={anchor}
@@ -48,7 +82,10 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
               <Heading
                 align="center"
                 as="h1"
-                size="8"
+                size={{
+                  initial: "6",
+                  sm: "8",
+                }}
                 weight="regular"
               >
                 {siteConfig.siteName}
@@ -58,6 +95,10 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
         </Flex>
         <Flex
           align="center"
+          display={{
+            initial: "none",
+            sm: "flex",
+          }}
           gap="16px"
         >
           <TabNav.Root>

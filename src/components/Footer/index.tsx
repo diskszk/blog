@@ -7,7 +7,10 @@ export const Footer: React.FC = () => (
     <Flex
       align="center"
       className={border}
-      height={styles.footerHeight}
+      height={{
+        initial: styles.footerHeight.sp,
+        sm: styles.footerHeight.pc,
+      }}
       px="16px"
     >
       <Text color="gray">
