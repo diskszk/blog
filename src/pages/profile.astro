@@ -2,11 +2,11 @@
 import { getEntry } from "astro:content";
 import { PageLayout } from "@/layouts";
 
-const entry = await getEntry("about", "me");
+const entry = await getEntry("profile", "me");
 
 const { Content } = await entry.render();
 ---
 
-  <PageLayout title="about">
+  <PageLayout title="profile">
     <Content />
   </PageLayout>

@@ -67,10 +67,10 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
               Blog
             </TabNav.Link>
             <TabNav.Link
-              active={currentPath === "about"}
-              href="/about"
+              active={currentPath === "profile"}
+              href="/profile"
             >
-              About
+              Profile
             </TabNav.Link>
           </TabNav.Root>
           <IconButton

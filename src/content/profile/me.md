@@ -1,5 +1,5 @@
 ---
-title: 'About me'
+title: 'My Profile'
 ---
 
 ## 私について
