@@ -5,13 +5,14 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
-    "check": "astro check",
     "preview": "wrangler pages dev ./dist",
-    "astro": "astro",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "ci": "astro check && pnpm lint"
+    "check": "tsc --noEmit && astro check",
+    "check:type": "tsc --noEmit",
+    "ci": "pnpm check:type && astro check && pnpm lint",
+    "build": "astro build",
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
