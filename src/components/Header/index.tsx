@@ -2,7 +2,7 @@ import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { Flex, Heading, IconButton, TabNav, Box, Button } from "@radix-ui/themes";
 import { siteConfig } from "@/siteConfig";
 import { styles } from "@/constants";
-import { border, radius } from "./style.css";
+import { anchor, border, radius } from "./style.css";
 
 type Props = {
   currentPath: string;
@@ -24,6 +24,7 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
         <Flex gapX="8px">
           <Button
             asChild
+            className={anchor}
             color="gray"
             variant="ghost"
           >
@@ -75,6 +76,7 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
           </TabNav.Root>
           <IconButton
             asChild
+            className={anchor}
             color="gray"
             variant="ghost"
           >
