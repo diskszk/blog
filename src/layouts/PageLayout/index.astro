@@ -38,7 +38,7 @@ const { pathname } = Astro.url;
     </head>
 
     <body>
-      <Layout pathname={pathname}>
+      <Layout pathname={pathname} client:load>
         <slot />
       </Layout>
     </body>

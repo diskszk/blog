@@ -13,3 +13,7 @@ export const anchor = style({
     backgroundColor: "inherit",
   },
 });
+
+export const verticalNavigation = style({
+  backgroundColor: "#E0E0E0",
+});

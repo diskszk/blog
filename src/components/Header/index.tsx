@@ -7,9 +7,11 @@ import {
   Box,
   Button,
 } from "@radix-ui/themes";
+import { useCallback, useState, type KeyboardEvent } from "react";
 import { siteConfig } from "@/siteConfig";
 import { styles } from "@/constants";
 import { anchor, border, radius } from "./style.css";
+import { VerticalNavigation } from "./VerticalNavigation";
 
 type Props = {
   currentPath: string;
@@ -18,8 +20,30 @@ type Props = {
 export const Header: React.FC<Props> = ({ currentPath }) => {
   const iconSize = "48px";
 
+  const [isOpen, setIsOpen] = useState(false);
+  const handleClickMenuIcon = useCallback(() => {
+    setIsOpen(true);
+  }, []);
+
+  const handleCloseMenu = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
+  const handleKeydown = useCallback(
+    (event: KeyboardEvent<HTMLDivElement>) => {
+      if (!isOpen) {
+        return;
+      }
+      if (event.key !== "Escape") {
+        return;
+      }
+
+      setIsOpen(false);
+    }, [isOpen, setIsOpen]);
+
   return (
     <header>
+      {isOpen && <VerticalNavigation handleClick={handleCloseMenu} />}
       <Flex
         align="center"
         className={border}
@@ -28,6 +52,7 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
           sm: styles.headerHeight.pc,
         }}
         justify="between"
+        onKeyDown={handleKeydown}
         pt={{
           initial: "0px",
           sm: "8px",
@@ -43,6 +68,7 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
         >
           <IconButton
             color="gray"
+            onClick={handleClickMenuIcon}
             radius="medium"
             variant="outline"
           >
