@@ -7,3 +7,9 @@ export const border = style({
 export const radius = style({
   borderRadius: "30%",
 });
+
+export const anchor = style({
+  ":hover": {
+    backgroundColor: "inherit",
+  },
+});
