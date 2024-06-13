@@ -29,29 +29,31 @@ export const VerticalNavigation: React.FC<Props> = ({ handleClick }) => {
       >
         <Cross2Icon />
       </IconButton>
-      <Flex
-        direction="column"
-        gapY="8px"
-      >
-        <Link
-          color="gray"
-          href="/"
+      <nav>
+        <Flex
+          direction="column"
+          gapY="8px"
         >
-          Home
-        </Link>
-        <Link
-          color="gray"
-          href="/blog"
-        >
-          blog
-        </Link>
-        <Link
-          color="gray"
-          href="/profile"
-        >
-          profile
-        </Link>
-      </Flex>
+          <Link
+            color="gray"
+            href="/"
+          >
+            Home
+          </Link>
+          <Link
+            color="gray"
+            href="/blog"
+          >
+            blog
+          </Link>
+          <Link
+            color="gray"
+            href="/profile"
+          >
+            profile
+          </Link>
+        </Flex>
+      </nav>
     </Flex>
   );
 };
