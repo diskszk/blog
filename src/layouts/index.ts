@@ -1,3 +1,5 @@
 import "@/styles/initialize";
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 export { default as PageLayout } from "./PageLayout/index.astro";
