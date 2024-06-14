@@ -25,3 +25,5 @@ pnpm-debug.log*
 
 .tool-versions
 .wrangler
+*storybook.log
+storybook-static
