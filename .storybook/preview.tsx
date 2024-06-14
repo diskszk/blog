@@ -15,7 +15,7 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <Theme>
+      <Theme accentColor="mint" grayColor="auto" radius="medium">
         <MainContainer>
           <Story />
         </MainContainer>
