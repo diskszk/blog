@@ -1,19 +1,11 @@
 import type { ReactNode } from "react";
-import { Theme, Container, Flex } from "@radix-ui/themes";
-import { Header, Footer } from "@/components";
-import { styles } from "@/constants";
+import { Theme, Container } from "@radix-ui/themes";
 
 type Props = {
-  pathname: string;
   children: ReactNode;
 };
 
-export const Layout: React.FC<Props> = ({ pathname, children }) => {
-  const mainHeight = {
-    sp: `calc(100vh - ${styles.headerHeight.sp} - ${styles.footerHeight.sp})`,
-    pc: `calc(100vh - ${styles.headerHeight.pc} - ${styles.footerHeight.pc})`,
-  };
-
+export const Layout: React.FC<Props> = ({ children }) => {
   return (
     <Theme
       accentColor="mint"
@@ -27,23 +19,7 @@ export const Layout: React.FC<Props> = ({ pathname, children }) => {
           md: "3",
         }}
       >
-        <Header currentPath={pathname.split("/")[1] || ""} />
-        <Flex
-          direction="column"
-          minHeight={{
-            initial: mainHeight.sp,
-            sm: mainHeight.pc,
-          }}
-          px={{
-            initial: "16px",
-            sm: "64px",
-          }}
-          py="24px"
-          role="main"
-        >
-          {children}
-        </Flex>
-        <Footer />
+        {children}
       </Container>
     </Theme>
   );

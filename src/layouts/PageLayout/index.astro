@@ -1,5 +1,7 @@
 ---
+import { Header, Footer } from "@/components";
 import { Layout } from "./Layout";
+import { MainContainer } from "./MainContainer";
 
 type Props = {
   title: string;
@@ -38,8 +40,12 @@ const { pathname } = Astro.url;
     </head>
 
     <body>
-      <Layout pathname={pathname} client:load>
-        <slot />
+      <Layout>
+        <Header currentPath={pathname.split("/")[1] || ""} client:load />
+        <MainContainer>
+          <slot />
+        </MainContainer>
+        <Footer />
       </Layout>
     </body>
   </html>

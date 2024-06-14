@@ -10,7 +10,7 @@
     "lint:fix": "eslint src --fix",
     "check": "tsc --noEmit && astro check",
     "check:type": "tsc --noEmit",
-    "ci": "pnpm check:type && astro check && pnpm lint",
+    "ci": "pnpm lint && pnpm check:type && astro check",
     "build": "astro build",
     "astro": "astro"
   },
