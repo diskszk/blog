@@ -11,16 +11,19 @@ type ItemProps = {
 
 const BlogListItem: React.FC<ItemProps> = ({ entry }) => {
   return (
-    <Box maxWidth="360px">
+    <Box>
       <Card
         asChild
-        size="2"
+        size="4"
       >
         <Link href={`blog/${entry.slug}`}>
-          <Flex align="center">
+          <Flex
+            align="center"
+            as="span"
+          >
             <Text
+              size="3"
               truncate
-              weight="medium"
             >
               {entry.data.title}
             </Text>
@@ -42,22 +45,23 @@ type Props = {
 
 export const BlogList: React.FC<Props> = ({ entries }) => {
   return (
-    <ul>
-      <Grid
-        columns={{
-          initial: "1",
-          sm: "3",
-        }}
-        gapX="20px"
-        gapY="16px"
-        width="auto"
-      >
+    <Grid
+      asChild
+      columns={{
+        initial: "1",
+        sm: "2",
+      }}
+      gapX="16px"
+      gapY="12px"
+      width="auto"
+    >
+      <ul>
         {entries.map((entry) => (
           <li key={entry.slug}>
             <BlogListItem entry={entry} />
           </li>
         ))}
-      </Grid>
-    </ul>
+      </ul>
+    </Grid>
   );
 };
