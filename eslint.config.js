@@ -163,7 +163,7 @@ export default [
           },
           multilineDetection: "brackets",
         },
-      ], "@stylistic/arrow-parens": ["error", "always"],
+      ],
       "@typescript-eslint/triple-slash-reference": ["warn", { path: "always" }],
     },
   },
