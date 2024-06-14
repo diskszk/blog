@@ -7,7 +7,7 @@ const allBlogEntries = await getCollection("blog");
 const publicBlogEntries = allBlogEntries.filter(({ data }) => !data.private);
 
 ---
-  <PageLayout title="home">
+  <PageLayout title="blog">
 
     <BlogList entries={[...publicBlogEntries]} />
   </PageLayout>

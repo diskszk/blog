@@ -129,7 +129,7 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
         >
           <TabNav.Root>
             <TabNav.Link
-              active={currentPath === "blog" || !currentPath}
+              active={currentPath === "blog"}
               href="/blog"
             >
               Blog
