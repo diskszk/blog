@@ -31,7 +31,9 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "typescript": "^5.4.5",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "zenn-content-css": "^0.1.154",
+    "zenn-markdown-html": "^0.1.154"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.5.0",
