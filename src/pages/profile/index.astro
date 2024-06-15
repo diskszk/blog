@@ -1,6 +1,7 @@
 ---
 import { getEntry } from "astro:content";
 import { PageLayout } from "@/layouts";
+import "./_style.css";
 
 const entry = await getEntry("profile", "me");
 
@@ -11,4 +12,4 @@ const { Content } = await entry.render();
     <Content />
   </PageLayout>
     { /* eslint-disable @stylistic/jsx-indent */ }
-  <script src="../scripts/addOpenAnotherTabAttribute.ts"></script>
+  <script src="../../scripts/addOpenAnotherTabAttribute.ts"></script>
