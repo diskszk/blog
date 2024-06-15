@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+import lib from "zenn-markdown-html";
+import "zenn-content-css";
+
+export async function getStaticPaths() {
+  const allBlogEntries = await getCollection("blog");
+  const publicBlogEntries = allBlogEntries.filter(({ data }) => !data.private);
+
+  return publicBlogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+const markdownToHtml = lib.default ? lib.default : lib;
+const content = markdownToHtml(entry.body, {
+  embedOrigin: "https://embed.zenn.studio",
+});
+---
+
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="generator" content={Astro.generator} />
+      <title>blog</title>
+    </head>
+
+    <body>
+      <div class="znc">
+
+        <Fragment set:html={content} />
+      </div>
+      <script
+        is:inline
+        src="https://embed.zenn.studio/js/listen-embed-event.js"
+      />
+    </body>
+  </html>
