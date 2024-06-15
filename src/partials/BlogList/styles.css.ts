@@ -10,3 +10,7 @@ export const text = style({
   overflow: "hidden",
   WebkitBoxOrient: "vertical",
 });
+
+export const iconImage = style({
+  borderRadius: "25%",
+});
