@@ -9,5 +9,6 @@
       "@/*": ["./src/*"]
     },
     "types": ["vitest/globals"]
-  }
+  },
+  "exclude": ["dist", "storybook-static"]
 }
