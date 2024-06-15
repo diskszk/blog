@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import { PageLayout } from "@/layouts";
+
+export async function getStaticPaths() {
+  const allBlogEntries = await getCollection("blog");
+  const publicBlogEntries = allBlogEntries.filter(({ data }) => !data.private);
+
+  return publicBlogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+
+const { Content } = await entry.render();
+---
+  <PageLayout title={entry.data.title}>
+    <Content />
+  </PageLayout>
