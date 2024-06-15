@@ -1,5 +1,8 @@
+/* eslint-disable */
 import "@/styles/initialize";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 export { default as PageLayout } from "./PageLayout/index.astro";
+
+// @ts-ignore
+export { default as BlogLayout } from "./BlogLayout/index.astro";

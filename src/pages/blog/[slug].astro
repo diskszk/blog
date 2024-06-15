@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import lib from "zenn-markdown-html";
-import "zenn-content-css";
+import { BlogLayout } from "@/layouts";
 
 export async function getStaticPaths() {
   const allBlogEntries = await getCollection("blog");
@@ -23,22 +23,6 @@ const content = markdownToHtml(entry.body, {
 });
 ---
 
-  <html lang="en">
-    <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="generator" content={Astro.generator} />
-      <title>blog</title>
-    </head>
-
-    <body>
-      <div class="znc">
-
-        <Fragment set:html={content} />
-      </div>
-      <script
-        is:inline
-        src="https://embed.zenn.studio/js/listen-embed-event.js"
-      />
-    </body>
-  </html>
+  <BlogLayout title={entry.data.title}>
+    <Fragment set:html={content} />
+  </BlogLayout>
