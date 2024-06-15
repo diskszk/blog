@@ -3,6 +3,7 @@ import { Header, Footer } from "@/components";
 import { Layout } from "../Layout";
 import { MainContainer } from "../MainContainer";
 import CommonHead from "../CommonHead.astro";
+import "zenn-content-css";
 
 type Props = {
   title: string;
@@ -17,9 +18,12 @@ const { pathname } = Astro.url;
       <Layout>
         <Header currentPath={pathname.split("/")[1] || ""} client:load />
         <MainContainer>
-          <slot />
+          <div class="znc">
+            <slot />
+          </div>
         </MainContainer>
         <Footer />
       </Layout>
+      <script is:inline src="https://embed.zenn.studio/js/listen-embed-event.js" />
     </body>
   </html>
