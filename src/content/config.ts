@@ -5,6 +5,18 @@ const profileCollection = defineCollection({
   schema: z.object({}),
 });
 
+const blogCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    id: z.string(),
+    title: z.string(),
+    updated_at: z.string(),
+    private: z.boolean(),
+    tags: z.array(z.string()),
+  }),
+});
+
 export const collections = {
   profile: profileCollection,
+  blog: blogCollection,
 };

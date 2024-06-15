@@ -116,6 +116,7 @@ export default [
             svg: "always",
             astro: "always",
             jpeg: "always",
+            png: "always",
           },
         },
       ],
@@ -139,6 +140,7 @@ export default [
           ignoreRestSiblings: true,
         },
       ],
+      "no-console": "warn",
     },
   },
   {

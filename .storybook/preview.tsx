@@ -1,9 +1,8 @@
-import type { Preview } from "@storybook/react";
-import "@radix-ui/themes/styles.css";
-import "normalize.css";
-
-import { Theme } from "@radix-ui/themes";
 import React from "react";
+import type { Preview } from "@storybook/react";
+import { Theme } from "@radix-ui/themes";
+import "../src/styles/initialize";
+import { MainContainer } from "../src/layouts/PageLayout/MainContainer";
 
 const preview: Preview = {
   parameters: {
@@ -16,8 +15,10 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <Theme>
-        <Story />
+      <Theme accentColor="mint" grayColor="auto" radius="medium">
+        <MainContainer>
+          <Story />
+        </MainContainer>
       </Theme>
     ),
   ],
