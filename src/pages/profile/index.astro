@@ -1,7 +1,7 @@
 ---
 import { getEntry } from "astro:content";
 import { PageLayout } from "@/layouts";
-import "./_style.css";
+import "zenn-content-css";
 
 const entry = await getEntry("profile", "me");
 
@@ -9,6 +9,8 @@ const { Content } = await entry.render();
 ---
 
   <PageLayout title="profile">
-    <Content />
+    <div class="znc">
+      <Content />
+    </div>
   </PageLayout>
     <script src="../../scripts/addOpenAnotherTabAttribute.ts" />

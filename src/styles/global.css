@@ -3,5 +3,10 @@ body li {
 }
 
 body ul {
-  padding: 0px
+  padding: 0px;
+}
+
+body h1,
+h2 {
+  margin: 0;
 }
