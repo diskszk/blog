@@ -101,7 +101,7 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
                   alt="アイコン画像"
                   className={radius}
                   height={iconSize}
-                  src={siteConfig.userIcon.src}
+                  src={siteConfig.userIcon}
                   width={iconSize}
                 />
               </Box>

@@ -38,7 +38,7 @@ export const BlogCard: React.FC<Props> = ({ entry }) => {
               height="40px"
               onError={(event) => {
                 event.currentTarget.onerror = null;
-                event.currentTarget.src = siteConfig.userIcon.src;
+                event.currentTarget.src = siteConfig.userIcon;
                 event.currentTarget.alt = "恐竜のアイコン画像";
               }}
               src={logoImage.src}

@@ -1,16 +1,4 @@
 import { siteConfig } from "@/siteConfig";
-import apple from "@/assets/logo/apple-logo.png";
-import astro from "@/assets/logo/astro-logo.png";
-import aws from "@/assets/logo/AWS-Cloud-logo_32.svg";
-import css from "@/assets/logo/css-logo.png";
-import docker from "@/assets/logo/docker-mark-blue.svg";
-import js from "@/assets/logo/js.png";
-import react from "@/assets/logo/react-logo.svg";
-import testing from "@/assets/logo/testing-icon.svg";
-import nodejs from "@/assets/logo/nodejs-icon.svg";
-import typescript from "@/assets/logo/ts-logo-256.svg";
-import vite from "@/assets/logo/vite-logo.png";
-import nestjs from "@/assets/logo/nestjs_logo_icon_168087.svg";
 
 export function getLogoImageByTags(tags: string[]): {
   src: string;
@@ -24,13 +12,13 @@ export function getLogoImageByTags(tags: string[]): {
     case "react-query":
     case "react-hook-form": {
       return {
-        src: react.src,
+        src: "/assets/logo/react-logo.svg",
         name: "react",
       };
     }
     case "javascript": {
       return {
-        src: js.src,
+        src: "/assets/logo/js.png",
         name: "JavaScript",
       };
     }
@@ -38,7 +26,7 @@ export function getLogoImageByTags(tags: string[]): {
     case "apple":
     case "mac": {
       return {
-        src: apple.src,
+        src: "/assets/logo/apple-logo.png",
         name: "apple",
       };
     }
@@ -50,62 +38,64 @@ export function getLogoImageByTags(tags: string[]): {
     case "react-testing-library":
     case "testing-library": {
       return {
-        src: testing.src,
+        src: "/assets/logo/testing-icon.svg",
         name: "testing",
       };
     }
     case "css":
     case "sass": {
       return {
-        src: css.src,
+        src: "/assets/logo/css-logo.png",
         name: "css",
       };
     }
     case "astro": {
       return {
-        src: astro.src,
+        src: "/assets/logo/astro-logo.png",
         name: "astro",
       };
     }
     case "aws": {
       return {
-        src: aws.src,
+        src: "/assets/logo/AWS-Cloud-logo_32.svg",
         name: "aws",
       };
     }
     case "docker": {
       return {
-        src: docker.src,
+        src: "/assets/logo/docker-mark-blue.svg",
         name: "docker",
       };
     }
-    case "nodejs": {
+    case "nodejs":
+    case "node.js": {
       return {
-        src: nodejs.src,
+        src: "/assets/logo/nodejs-icon.svg",
         name: "nodejs",
       };
     }
     case "typescript": {
       return {
-        src: typescript.src,
+        src: "/assets/logo/ts-logo-256.svg",
         name: "typescript",
       };
     }
-    case "nestjs": {
+    case "nestjs":
+    case "nest.js": {
       return {
-        src: nestjs.src,
+        src: "/assets/logo/nestjs_logo_icon_168087.svg",
         name: "nestjs",
       };
     }
     case "vite": {
       return {
-        src: vite.src,
+        src: "/assets/logo/vite-logo.png",
         name: "vite",
       };
     }
     default: {
       return {
-        src: siteConfig.userIcon.src,
+        src: siteConfig.userIcon,
         name: "恐竜",
       };
     }

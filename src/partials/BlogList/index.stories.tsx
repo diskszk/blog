@@ -24,35 +24,42 @@ export const Default: Story = {
         slug: "pokewin",
         data: {
           title: "必ず勝てるポケモンバトル",
-          tags: ["React", "TypeScript"],
+          tags: ["TypeScript", "react"],
         },
       },
       {
         slug: "doublebattle",
         data: {
           title: "ダブルバトルの覇者になる",
-          tags: ["React", "TypeScript"],
+          tags: ["CSS", "TypeScript"],
         },
       },
       {
         slug: "strong100",
         data: {
           title: "強いポケモン100選",
-          tags: ["React", "TypeScript"],
+          tags: ["Astro", "TypeScript"],
         },
       },
       {
         slug: "saporter",
         data: {
           title: "サポートポケモンの選び方",
-          tags: ["React", "TypeScript"],
+          tags: ["AWS", "TypeScript"],
         },
       },
       {
         slug: "gard",
         data: {
           title: "まもるを使うタイミングが全て",
-          tags: ["React", "TypeScript"],
+          tags: ["node.js", "TypeScript"],
+        },
+      },
+      {
+        slug: "pokepoke",
+        data: {
+          title: "全体わざと単体技どちらを選ぶか",
+          tags: ["Nest.js", "TypeScript"],
         },
       },
     ],
