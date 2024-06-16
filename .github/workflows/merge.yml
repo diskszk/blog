@@ -2,7 +2,7 @@ name: Deploy to Cloudflare Pages on merge
 on:
   push:
     branches:
-      - release
+      - main
 jobs:
   cache-and-install:
     runs-on: ubuntu-latest
