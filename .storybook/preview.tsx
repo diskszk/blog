@@ -2,7 +2,7 @@ import React from "react";
 import type { Preview } from "@storybook/react";
 import { Theme } from "@radix-ui/themes";
 import "../src/styles/initialize";
-import { MainContainer } from "../src/layouts/PageLayout/MainContainer";
+import { MainContainer } from "../src/layouts/MainContainer";
 
 const preview: Preview = {
   parameters: {
