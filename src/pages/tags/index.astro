@@ -9,7 +9,7 @@ const publicBlogEntries = allBlogEntris.filter(({ data }) => !data.private);
 const tags = [...new Set(publicBlogEntries.map((entry) => entry.data.tags).flat())];
 ---
 
-  <PageLayout title="tags">
+  <PageLayout title="タグ一覧">
     <h2>タグ一覧</h2>
     <TagList tags={tags} />
   </PageLayout>

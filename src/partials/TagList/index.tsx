@@ -16,7 +16,7 @@ export const TagList: React.FC<Props> = ({ tags }) => (
       {tags.map((tag, index) => (
         <li key={index}>
           <Tag
-            href={`/tags/${tag.replaceAll(" ", "_")}`}
+            href={`/tags/${tag}`}
             size="3"
             tag={tag}
           />
