@@ -1,6 +1,7 @@
-import { Badge, Box, Card, Flex, Link } from "@radix-ui/themes";
+import { Box, Card, Flex, Link } from "@radix-ui/themes";
 import { getLogoImageByTags } from "@/helpers";
 import { siteConfig } from "@/siteConfig";
+import { Tag } from "@/components";
 import { iconImage, text } from "./styles.css";
 
 type Props = {
@@ -46,7 +47,7 @@ export const BlogCard: React.FC<Props> = ({ entry }) => {
             <Link
               className={text}
               color="gray"
-              href={`blog/${entry.slug}`}
+              href={`/blog/${entry.slug}`}
               size="3"
             >
               {entry.data.title}
@@ -64,16 +65,11 @@ export const BlogCard: React.FC<Props> = ({ entry }) => {
               <ul>
                 {entry.data.tags.slice(0, 5).map((tag, index) => (
                   <li key={index}>
-                    {/* pages/tags/*.astroへのリンク */}
-                    <Link href="./#">
-                      <Badge
-                        radius="large"
-                        size="1"
-                        variant="surface"
-                      >
-                        {tag}
-                      </Badge>
-                    </Link>
+                    <Tag
+                      href={`/tags/${tag}`}
+                      size="1"
+                      tag={tag}
+                    />
                   </li>
                 ))}
               </ul>

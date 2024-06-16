@@ -44,13 +44,19 @@ export const VerticalNavigation: React.FC<Props> = ({ handleClick }) => {
             color="gray"
             href="/blog"
           >
-            blog
+            Blog
+          </Link>
+          <Link
+            color="gray"
+            href="/tags"
+          >
+            タグ一覧
           </Link>
           <Link
             color="gray"
             href="/profile"
           >
-            profile
+            Profile
           </Link>
         </Flex>
       </nav>

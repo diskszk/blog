@@ -135,6 +135,12 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
               Blog
             </TabNav.Link>
             <TabNav.Link
+              active={currentPath === "tags"}
+              href="/tags"
+            >
+              タグ一覧
+            </TabNav.Link>
+            <TabNav.Link
               active={currentPath === "profile"}
               href="/profile"
             >
