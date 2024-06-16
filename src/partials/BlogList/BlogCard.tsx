@@ -1,4 +1,5 @@
-import { Box, Card, Flex, Link } from "@radix-ui/themes";
+import { Box, Card, Flex, Link, Text } from "@radix-ui/themes";
+import { format } from "date-fns";
 import { getLogoImageByTags } from "@/helpers";
 import { siteConfig } from "@/siteConfig";
 import { Tag } from "@/components";
@@ -10,12 +11,15 @@ type Props = {
     data: {
       title: string;
       tags: string[];
+      updated_at: string;
     };
   };
 };
 
 export const BlogCard: React.FC<Props> = ({ entry }) => {
   const logoImage = getLogoImageByTags(entry.data.tags);
+
+  const formateDate = format(entry.data.updated_at, "yyyy年MM月dd日");
 
   return (
     <Box>
@@ -53,6 +57,13 @@ export const BlogCard: React.FC<Props> = ({ entry }) => {
               {entry.data.title}
             </Link>
           </Flex>
+          <Text
+            color="gray"
+            size="1"
+            weight="light"
+          >
+            {formateDate}
+          </Text>
           <Flex
             asChild
             gapX="4px"
