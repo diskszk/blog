@@ -1,0 +1,42 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import { PageLayout } from "@/layouts";
+import { BlogList } from "@/partials";
+import { getLogoImageByTags } from "@/helpers";
+import { TopImage } from "@/components";
+
+export const getStaticPaths = (async () => {
+  const allBlogEntris = await getCollection("blog");
+  const publicBlogEntries = allBlogEntris.filter(({ data }) => !data.private);
+  const uniqueTags = [...new Set(publicBlogEntries.map(({ data }) => data.tags).flat())];
+
+  return uniqueTags.map((tag) => {
+    const filteredEntries = publicBlogEntries.filter(({ data }) => data.tags.includes(tag));
+
+    return {
+      params: { tag },
+      props: { entries: filteredEntries },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const { tag } = Astro.params;
+const { entries } = Astro.props;
+
+const logoImage = getLogoImageByTags([tag]);
+
+---
+
+  <PageLayout title={tag}>
+    <h2>
+      {tag}
+      のタグが付いた記事一覧
+    </h2>
+    <!-- タグに合った画像がない場合表示しない -->
+    {logoImage.name !== "恐竜" && (
+      <TopImage src={logoImage.src} />
+    )}
+
+    <BlogList entries={entries} />
+  </PageLayout>
