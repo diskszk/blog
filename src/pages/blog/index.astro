@@ -8,6 +8,6 @@ const publicBlogEntries = allBlogEntries.filter(({ data }) => !data.private);
 
 ---
   <PageLayout title="blog">
-
+    <h2>記事一覧</h2>
     <BlogList entries={[...publicBlogEntries]} />
   </PageLayout>
