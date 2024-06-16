@@ -47,7 +47,7 @@ export const BlogCard: React.FC<Props> = ({ entry }) => {
             <Link
               className={text}
               color="gray"
-              href={`blog/${entry.slug}`}
+              href={`/blog/${entry.slug}`}
               size="3"
             >
               {entry.data.title}

@@ -16,4 +16,5 @@ export const anchor = style({
 
 export const verticalNavigation = style({
   backgroundColor: "#E0E0E0",
+  zIndex: "1",
 });
