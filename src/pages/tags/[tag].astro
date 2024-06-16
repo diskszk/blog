@@ -29,14 +29,6 @@ const logoImage = getLogoImageByTags([tag]);
 ---
 
   <PageLayout title={tag}>
-    <h2>
-      {tag}
-      のタグが付いた記事一覧
-    </h2>
-    <!-- タグに合った画像がない場合表示しない -->
-    {logoImage.name !== "恐竜" && (
-      <TopImage src={logoImage.src} />
-    )}
-
+    <TopImage tag={tag} logoImage={logoImage} />
     <BlogList entries={entries} />
   </PageLayout>

@@ -1,20 +1,31 @@
 import { Flex } from "@radix-ui/themes";
-import type { ImgHTMLAttributes } from "react";
 import { image } from "./styles.css";
 
-export const TopImage: React.FC<ImgHTMLAttributes<HTMLImageElement>> = (
-  props,
-) => (
+type Props = {
+  tag: string;
+  logoImage: {
+    src: string;
+    name: string;
+  };
+};
+
+export const TopImage: React.FC<Props> = ({ tag, logoImage }) => (
   <Flex
-    m="auto"
-    my="16px"
-    width="320px"
+    align="center"
+    direction="row"
+    gap="8px"
   >
-    <img
-      alt="トップ画像"
-      className={image}
-      width="100%"
-      {...props}
-    />
+    {logoImage.name !== "恐竜" && (
+      <img
+        alt="トップ画像"
+        className={image}
+        height="40px"
+        src={logoImage.src}
+      />
+    )}
+    <h2>
+      {tag}
+      のタグが付いた記事一覧
+    </h2>
   </Flex>
 );
