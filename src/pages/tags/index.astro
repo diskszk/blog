@@ -1,12 +1,11 @@
 ---
-import { getCollection } from "astro:content";
 import { PageLayout } from "@/layouts";
 import { TagList } from "@/partials/TagList";
+import { getBlogEntries } from "../_getBlogEntries";
 
-const allBlogEntris = await getCollection("blog");
-const publicBlogEntries = allBlogEntris.filter(({ data }) => !data.private);
+const blogEntroies = await getBlogEntries();
 
-const tags = [...new Set(publicBlogEntries.map((entry) => entry.data.tags).flat())];
+const tags = [...new Set(blogEntroies.map((entry) => entry.data.tags).flat())];
 ---
 
   <PageLayout title="タグ一覧">

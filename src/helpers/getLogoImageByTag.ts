@@ -1,12 +1,10 @@
 import { siteConfig } from "@/siteConfig";
 
-export function getLogoImageByTags(tags: string[]): {
+export function getLogoImageByTag(tag: string): {
   src: string;
   name: string;
 } {
-  const tag = tags[0]?.toLowerCase();
-
-  switch (tag) {
+  switch (tag.toLowerCase()) {
     case "react":
     case "react-hooks":
     case "react-query":
