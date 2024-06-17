@@ -3,7 +3,7 @@ import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import { PageLayout } from "@/layouts";
 import { BlogList } from "@/partials";
-import { getLogoImageByTags } from "@/helpers";
+import { getLogoImageByTag } from "@/helpers";
 import { TopImage } from "@/components";
 
 export const getStaticPaths = (async () => {
@@ -24,7 +24,7 @@ export const getStaticPaths = (async () => {
 const { tag } = Astro.params;
 const { entries } = Astro.props;
 
-const logoImage = getLogoImageByTags([tag]);
+const logoImage = getLogoImageByTag(tag);
 
 ---
 
