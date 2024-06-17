@@ -1,13 +1,12 @@
 ---
-import { getCollection } from "astro:content";
 import lib from "zenn-markdown-html";
 import { BlogLayout } from "@/layouts";
+import { getBlogEntries } from "../_getBlogEntries";
 
 export async function getStaticPaths() {
-  const allBlogEntries = await getCollection("blog");
-  const publicBlogEntries = allBlogEntries.filter(({ data }) => !data.private);
+  const blogEntries = await getBlogEntries();
 
-  return publicBlogEntries.map((entry) => ({
+  return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));

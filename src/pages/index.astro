@@ -1,11 +1,9 @@
 ---
-import { getCollection } from "astro:content";
 import { PageLayout } from "@/layouts";
 import { BlogList } from "@/partials";
+import { getBlogEntries } from "./_getBlogEntries";
 
-const allBlogEntries = await getCollection("blog");
-const publicBlogEntries = allBlogEntries.filter(({ data }) => !data.private);
-
+const blogEntries = await getBlogEntries();
 ---
   <PageLayout title="home">
 
@@ -13,6 +11,6 @@ const publicBlogEntries = allBlogEntries.filter(({ data }) => !data.private);
 
     <section>
       <h2>記事一覧</h2>
-      <BlogList entries={[...publicBlogEntries]} />
+      <BlogList entries={[...blogEntries]} />
     </section>
   </PageLayout>

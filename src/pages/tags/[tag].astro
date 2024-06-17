@@ -1,18 +1,18 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { getCollection } from "astro:content";
 import { PageLayout } from "@/layouts";
 import { BlogList } from "@/partials";
 import { getLogoImageByTag } from "@/helpers";
 import { TopImage } from "@/components";
+import { getBlogEntries } from "../_getBlogEntries";
 
 export const getStaticPaths = (async () => {
-  const allBlogEntris = await getCollection("blog");
-  const publicBlogEntries = allBlogEntris.filter(({ data }) => !data.private);
-  const uniqueTags = [...new Set(publicBlogEntries.map(({ data }) => data.tags).flat())];
+  const blogEntries = await getBlogEntries();
+
+  const uniqueTags = [...new Set(blogEntries.map(({ data }) => data.tags).flat())];
 
   return uniqueTags.map((tag) => {
-    const filteredEntries = publicBlogEntries.filter(({ data }) => data.tags.includes(tag));
+    const filteredEntries = blogEntries.filter(({ data }) => data.tags.includes(tag));
 
     return {
       params: { tag },
@@ -25,7 +25,6 @@ const { tag } = Astro.params;
 const { entries } = Astro.props;
 
 const logoImage = getLogoImageByTag(tag);
-
 ---
 
   <PageLayout title={tag}>
