@@ -27,7 +27,7 @@ const { entries } = Astro.props;
 const logoImage = getLogoImageByTag(tag);
 ---
 
-  <PageLayout title={tag}>
+  <PageLayout title={`${tag}のタグが付いたブログ一覧`}>
     <TopImage tag={tag} logoImage={logoImage} />
     <BlogList entries={entries} />
   </PageLayout>
