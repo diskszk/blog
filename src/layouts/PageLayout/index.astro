@@ -6,13 +6,14 @@ import CommonHead from "../CommonHead.astro";
 
 type Props = {
   title: string;
+  description: string;
 };
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 const { pathname } = Astro.url;
 ---
 
   <html lang="en">
-    <CommonHead title={title} />
+    <CommonHead title={title} description={description} />
     <body>
       <Layout>
         <Header currentPath={pathname.split("/")[1] || ""} client:load />

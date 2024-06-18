@@ -1,11 +1,12 @@
 ---
 import { PageLayout } from "@/layouts";
 import { BlogList } from "@/partials";
+import { siteConfig } from "@/siteConfig";
 import { getBlogEntries } from "./_getBlogEntries";
 
 const blogEntries = await getBlogEntries();
 ---
-  <PageLayout title="トップページ">
+  <PageLayout title="トップページ" description=`${siteConfig.siteName}です。フロントエンドを中心に学んだことを書いていきます。`>
 
     <p>フロントエンドを中心に学んだことを書いていきます。</p>
 
