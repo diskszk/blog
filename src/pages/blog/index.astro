@@ -5,7 +5,7 @@ import { getBlogEntries } from "../_getBlogEntries";
 
 const blogEntries = await getBlogEntries();
 ---
-  <PageLayout title="blog">
-    <h2>記事一覧</h2>
+  <PageLayout title="ブログ一覧">
+    <h2>ブログ一覧</h2>
     <BlogList entries={[...blogEntries]} />
   </PageLayout>

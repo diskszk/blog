@@ -5,12 +5,12 @@ import { getBlogEntries } from "./_getBlogEntries";
 
 const blogEntries = await getBlogEntries();
 ---
-  <PageLayout title="home">
+  <PageLayout title="トップページ">
 
     <p>フロントエンドを中心に学んだことを書いていきます。</p>
 
     <section>
-      <h2>記事一覧</h2>
+      <h2>ブログ一覧</h2>
       <BlogList entries={[...blogEntries]} />
     </section>
   </PageLayout>

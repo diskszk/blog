@@ -25,7 +25,7 @@ export const TopImage: React.FC<Props> = ({ tag, logoImage }) => (
     )}
     <h2>
       {tag}
-      のタグが付いた記事一覧
+      のタグが付いたブログ一覧
     </h2>
   </Flex>
 );
