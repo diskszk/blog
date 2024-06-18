@@ -1,10 +1,11 @@
-import { Flex, Heading } from "@radix-ui/themes";
+import { Box, Button, Flex, Heading, Link, Text } from "@radix-ui/themes";
 
 export const Notfound: React.FC = () => (
   <Flex
-    justify="center"
-    my="auto"
-    pb="64px"
+    align="center"
+    direction="column"
+    gapY="24px"
+    my="64px"
     width="100%"
   >
     <Heading
@@ -14,5 +15,22 @@ export const Notfound: React.FC = () => (
     >
       404: Not found
     </Heading>
+    <Box width="60%">
+      <Text
+        color="gray"
+        weight="medium"
+      >
+        お探しのページは見つかりませんでした。削除、変更されたか URL が間違っている可能性がございます。
+      </Text>
+    </Box>
+    <Button
+      asChild
+      color="gray"
+      variant="outline"
+    >
+      <Link href="/">
+        トップページへ
+      </Link>
+    </Button>
   </Flex>
 );
