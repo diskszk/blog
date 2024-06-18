@@ -14,4 +14,6 @@ export default defineConfig({
     },
     plugins: [vanillaExtractPlugin()],
   },
+  // TODO: カスタムドメインを設定する
+  site: "https://blog-cfq.pages.dev",
 });
