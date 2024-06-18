@@ -4,6 +4,7 @@ import { PageLayout } from "@/layouts";
 import { BlogList } from "@/partials";
 import { getLogoImageByTag } from "@/helpers";
 import { TopImage } from "@/components";
+import { siteConfig } from "@/siteConfig";
 import { getBlogEntries } from "../_getBlogEntries";
 
 export const getStaticPaths = (async () => {
@@ -27,7 +28,7 @@ const { entries } = Astro.props;
 const logoImage = getLogoImageByTag(tag);
 ---
 
-  <PageLayout title={`${tag}のタグが付いたブログ一覧`}>
+  <PageLayout title={`${tag}のタグが付いたブログ一覧`} description=`${siteConfig.siteName}の${tag}のタグが付いたブログ一覧ページです。`>
     <TopImage tag={tag} logoImage={logoImage} />
     <BlogList entries={entries} />
   </PageLayout>

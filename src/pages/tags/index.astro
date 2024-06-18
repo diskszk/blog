@@ -1,6 +1,7 @@
 ---
 import { PageLayout } from "@/layouts";
 import { TagList } from "@/partials/TagList";
+import { siteConfig } from "@/siteConfig";
 import { getBlogEntries } from "../_getBlogEntries";
 
 const blogEntroies = await getBlogEntries();
@@ -8,7 +9,7 @@ const blogEntroies = await getBlogEntries();
 const tags = [...new Set(blogEntroies.map((entry) => entry.data.tags).flat())];
 ---
 
-  <PageLayout title="タグ一覧">
+  <PageLayout title="タグ一覧" description=`${siteConfig.siteName}のタグ一覧ページです。`>
     <h2>タグ一覧</h2>
     <TagList tags={tags} />
   </PageLayout>
