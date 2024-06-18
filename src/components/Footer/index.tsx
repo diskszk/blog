@@ -1,5 +1,6 @@
 import { Flex, Text } from "@radix-ui/themes";
 import { styles } from "@/constants";
+import { siteConfig } from "@/siteConfig";
 import { border } from "./styles.css";
 
 export const Footer: React.FC = () => (
@@ -14,7 +15,10 @@ export const Footer: React.FC = () => (
       px="16px"
     >
       <Text color="gray">
-        <small>© 2024 diskszk </small>
+        <small>
+          © 2024
+          {siteConfig.author}
+        </small>
       </Text>
     </Flex>
   </footer>
