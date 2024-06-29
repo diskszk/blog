@@ -91,6 +91,12 @@ export function getLogoImageByTag(tag: string): {
         name: "vite",
       };
     }
+    case "rxjs": {
+      return {
+        src: "/assets/logo/rxjs-logo.svg",
+        name: "rxjs",
+      };
+    }
     default: {
       return {
         src: siteConfig.userIcon,
