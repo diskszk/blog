@@ -5,7 +5,7 @@ import path from "path";
 export default defineConfig({
   plugins: [vanillaExtractPlugin()],
   test: {
-    include: ["src/**/*.(test|spec).(ts|tsx)"],
+    include: ["src/**/*.(test|spec).(ts|tsx)", "cli/**/*.(test|spec).ts"],
     environment: "happy-dom",
     setupFiles: ["vitest.setup.ts"],
   },

@@ -46,6 +46,7 @@ export default [
     },
   },
   {
+    // jsx
     files: ["src/**/*.{ts,tsx}"],
     languageOptions: {
       parser: typescriptParser,
@@ -81,9 +82,10 @@ export default [
     },
   },
   {
-    files: ["src/**/*.{ts,tsx,astro}"],
+    // import
+    files: ["{src,cli}/**/*.{ts,tsx,astro}"],
     plugins: {
-      "import": importPlugin,
+      import: importPlugin,
       "unused-imports": unusedImportsPlugin,
       "@stylistic": stylistic,
     },
@@ -94,7 +96,7 @@ export default [
         "error",
         {
           "newlines-between": "never",
-          "pathGroups": [
+          pathGroups: [
             {
               pattern: "@/**",
               group: "external",
@@ -123,10 +125,7 @@ export default [
       "import/no-internal-modules": [
         "warn",
         {
-          allow: [
-            "@*/**",
-            "**/layouts/**/index.astro",
-          ],
+          allow: ["@*/**", "**/layouts/**/index.astro"],
         },
       ],
       "unused-imports/no-unused-imports": "error",
@@ -141,6 +140,12 @@ export default [
         },
       ],
       "no-console": "warn",
+    },
+  },
+  {
+    files: ["cli/**/*.ts"],
+    rules: {
+      "no-console": "off",
     },
   },
   {
@@ -165,8 +170,15 @@ export default [
           },
           multilineDetection: "brackets",
         },
-      ], "@stylistic/arrow-parens": ["error", "always"],
+      ],
+      "@stylistic/arrow-parens": ["error", "always"],
       "@typescript-eslint/triple-slash-reference": ["warn", { path: "always" }],
+      "@stylistic/brace-style": ["error", "1tbs"],
+      "@stylistic/operator-linebreak": [
+        "error",
+        "after",
+        { overrides: { "?": "before", ":": "before" } },
+      ],
     },
   },
 ];
