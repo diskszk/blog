@@ -1,13 +1,9 @@
 ---
 title: react+自動テスト環境のテンプレートリポジトリを作る
-tags:
-  - React
-private: false
-updated_at: '2023-11-21T18:12:25+09:00'
-id: e790fba7ddf5a916b277
-organization_url_name: null
-slide: false
-ignorePublish: false
+topics: ["React"]
+published: true
+published_at: '2023-11-21T18:12:25+09:00'
+description: 
 ---
 
 ## はじめに

@@ -1,13 +1,9 @@
 ---
 title: MacBookを手に入れたので環境構築をする
-tags:
-  - MacBook
-private: false
-updated_at: '2023-11-24T09:26:06+09:00'
-id: 4ad4d592d400a94644aa
-organization_url_name: null
-slide: false
-ignorePublish: false
+topics: ["MacBook"]
+published: true
+published_at: '2023-11-24T09:26:06+09:00'
+description: 
 ---
 
 ## 概要

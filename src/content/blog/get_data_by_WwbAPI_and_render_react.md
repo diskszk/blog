@@ -1,14 +1,9 @@
 ---
 title: ReactコンポーネントでWebAPIからデータを取得し画面に表示するまで
-tags:
-  - React
-  - react-hooks
-private: false
-updated_at: '2023-11-21T18:12:26+09:00'
-id: e9f4664a3093d001f596
-organization_url_name: null
-slide: false
-ignorePublish: false
+topics: ["React","react-hooks"]
+published: true
+published_at: '2023-11-21T18:12:26+09:00'
+description: 
 ---
 get_data_by_WwbAPI_and_render_react
 <!-- textlint-disable -->
