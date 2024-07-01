@@ -10,10 +10,10 @@ import { getBlogEntries } from "../_getBlogEntries";
 export const getStaticPaths = (async () => {
   const blogEntries = await getBlogEntries();
 
-  const uniqueTags = [...new Set(blogEntries.map(({ data }) => data.tags).flat())];
+  const uniqueTags = [...new Set(blogEntries.map(({ data }) => data.topics).flat())];
 
   return uniqueTags.map((tag) => {
-    const filteredEntries = blogEntries.filter(({ data }) => data.tags.includes(tag));
+    const filteredEntries = blogEntries.filter(({ data }) => data.topics.includes(tag));
 
     return {
       params: { tag },

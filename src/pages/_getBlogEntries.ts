@@ -6,10 +6,10 @@ function dateToTime(date: string): number {
 
 export const getBlogEntries = async () => {
   const allBlogEntries = await getCollection("blog");
-  const publicBlogEntries = allBlogEntries.filter(({ data }) => !data.private);
+  const publicBlogEntries = allBlogEntries.filter(({ data }) => data.published);
 
   const sortedByUpdateAtEntries = publicBlogEntries.sort(
-    (a, b) => dateToTime(b.data.updated_at) - dateToTime(a.data.updated_at),
+    (a, b) => dateToTime(b.data.published_at) - dateToTime(a.data.published_at),
   );
 
   return sortedByUpdateAtEntries;

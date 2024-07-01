@@ -3,23 +3,20 @@ import { format } from "date-fns";
 import { getLogoImageByTag } from "@/helpers";
 import { siteConfig } from "@/siteConfig";
 import { Tag } from "@/components";
+import type { BlogSchema } from "@/content/config";
 import { iconImage, text } from "./styles.css";
 
 type Props = {
   entry: {
     slug: string;
-    data: {
-      title: string;
-      tags: string[];
-      updated_at: string;
-    };
+    data: BlogSchema;
   };
 };
 
 export const BlogCard: React.FC<Props> = ({ entry }) => {
-  const logoImage = getLogoImageByTag(entry.data.tags[0] || "");
+  const logoImage = getLogoImageByTag(entry.data.topics[0] || "");
 
-  const formateDate = format(entry.data.updated_at, "yyyy年MM月dd日");
+  const formateDate = format(entry.data.published_at, "yyyy年MM月dd日");
 
   return (
     <Box>
@@ -74,7 +71,7 @@ export const BlogCard: React.FC<Props> = ({ entry }) => {
               wrap="wrap"
             >
               <ul>
-                {entry.data.tags.slice(0, 5).map((tag, index) => (
+                {entry.data.topics.slice(0, 5).map((tag, index) => (
                   <li key={index}>
                     <Tag
                       href={`/tags/${tag}`}

@@ -1,15 +1,9 @@
 ---
 title: '@tanstack/react-queryを使ってModalの状態を管理する'
-tags:
-  - React
-  - 状態管理
-  - react-query
-private: false
-updated_at: '2023-11-21T18:12:26+09:00'
-id: b754a53aff015587940b
-organization_url_name: null
-slide: false
-ignorePublish: false
+topics: ["React","状態管理","react-query"]
+published: true
+published_at: '2023-11-21T18:12:26+09:00'
+description: 
 ---
 
 <!-- textlint-disable -->

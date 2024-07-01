@@ -1,14 +1,9 @@
 ---
 title: Markdownのリンクを別タブで開くようにする
-tags:
-  - JavaScript
-  - Markdown
-private: false
-updated_at: '2024-06-14T13:42:23+09:00'
-id: 9cd3ceeadd162935bae8
-organization_url_name: null
-slide: false
-ignorePublish: false
+topics: ["JavaScript","Markdown"]
+published: true
+published_at: '2024-06-14T13:42:23+09:00'
+description: 
 ---
 
 Markdown で書いたドキュメントのリンクから別タブで開くようにするための処理を書いていきます。
