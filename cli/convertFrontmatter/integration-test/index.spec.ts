@@ -1,13 +1,13 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { test, describe, beforeAll, afterAll, expect } from "vitest";
-import { main } from "../main";
+import { convertForntmatter } from "../index";
 import { setup, cleanup, tmpDir } from "./setup";
 
 describe("作成したファイルのfrontmatterを書き換える", async () => {
   beforeAll(async () => {
     await setup();
-    await main(tmpDir);
+    await convertForntmatter(tmpDir);
   });
 
   afterAll(async () => {

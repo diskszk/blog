@@ -7,14 +7,7 @@ import { getOldValue } from "./getOldValue";
 import { updateOriginFile } from "./updateOriginFile";
 import { getNewValue } from "./getNewValue";
 
-// こうしないとtestテストが通らない
-const PATH_TO_TARGET_DIR =
-  import.meta.env.MODE === "test" ? "./integration-test/tmp" : "./tmp";
-
-const targetDir = path.join(__dirname, PATH_TO_TARGET_DIR);
-const targetFile = (filename: string) => path.join(targetDir, filename);
-
-export async function main(targetDir: string) {
+export async function convertForntmatter(targetDir: string) {
   const readDirResult = await getMarkdownFileList(targetDir);
 
   if (readDirResult.isErr()) {
@@ -26,7 +19,7 @@ export async function main(targetDir: string) {
 
   await Promise.all(
     filenameList.map(async (filename) => {
-      const readFileResult = await getFile(targetFile(filename));
+      const readFileResult = await getFile(path.join(targetDir, filename));
 
       if (readFileResult.isErr()) {
         console.error(readFileResult.error);
@@ -44,7 +37,7 @@ export async function main(targetDir: string) {
       const oldFrontmatter = filterOldFrontmatter(frontmatter);
 
       if (!oldFrontmatter) {
-        console.info(`info: skip file: ${targetFile(filename)}`);
+        console.info(`info: skip file: ${path.join(targetDir, filename)}`);
         return;
       }
 
@@ -52,7 +45,7 @@ export async function main(targetDir: string) {
       const newValue = getNewValue(oldValue);
 
       const writeFileResult = await updateOriginFile(
-        targetFile(filename),
+        path.join(targetDir, filename),
         newValue,
       );
 
@@ -65,5 +58,3 @@ export async function main(targetDir: string) {
     }),
   );
 }
-
-// await main(targetDir);

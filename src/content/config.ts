@@ -9,7 +9,7 @@ const blogSchema = z.object({
   title: z.string(),
   topics: z.array(z.string()),
   published: z.boolean(),
-  description: z.string().optional() || "",
+  description: z.string().optional().nullable(),
   published_at: z.string(),
 });
 
