@@ -1,14 +1,11 @@
 import { Grid } from "@radix-ui/themes";
+import type { BlogSchema } from "@/content/config";
 import { BlogCard } from "./BlogCard";
 
 type Props = {
   entries: {
     slug: string;
-    data: {
-      title: string;
-      tags: string[];
-      updated_at: string;
-    };
+    data: BlogSchema;
   }[];
 };
 

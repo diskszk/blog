@@ -5,19 +5,22 @@ const profileCollection = defineCollection({
   schema: z.object({}),
 });
 
+const blogSchema = z.object({
+  title: z.string(),
+  topics: z.array(z.string()),
+  published: z.boolean(),
+  description: z.string().optional() || "",
+  published_at: z.string(),
+});
+
 const blogCollection = defineCollection({
   type: "content",
-  schema: z.object({
-    id: z.string(),
-    title: z.string(),
-    updated_at: z.string(),
-    private: z.boolean(),
-    tags: z.array(z.string()),
-    description: z.string().optional() || "",
-  }),
+  schema: blogSchema,
 });
 
 export const collections = {
   profile: profileCollection,
   blog: blogCollection,
 };
+
+export type BlogSchema = z.infer<typeof blogSchema>;

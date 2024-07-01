@@ -6,7 +6,7 @@ import { getBlogEntries } from "../_getBlogEntries";
 
 const blogEntroies = await getBlogEntries();
 
-const tags = [...new Set(blogEntroies.map((entry) => entry.data.tags).flat())];
+const tags = [...new Set(blogEntroies.map((entry) => entry.data.topics).flat())];
 ---
 
   <PageLayout title="タグ一覧" description=`${siteConfig.siteName}のタグ一覧ページです。`>
