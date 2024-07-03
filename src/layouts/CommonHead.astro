@@ -3,7 +3,7 @@ import { siteConfig } from "@/siteConfig";
 
 type Props = {
   title: string;
-  description: string;
+  description: string | null | undefined;
 };
 const { title, description } = Astro.props;
 
