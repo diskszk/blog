@@ -1,15 +1,13 @@
 ---
-import { Header, Footer } from "@/components";
+import { Header, Footer, BlogInfo } from "@/components";
+import type { BlogSchema } from "@/content/config";
 import { Layout } from "../Layout";
 import { MainContainer } from "../MainContainer";
 import CommonHead from "../CommonHead.astro";
 import "zenn-content-css";
 
-type Props = {
-  title: string;
-  description: string;
-};
-const { title, description } = Astro.props;
+type Props = Pick<BlogSchema, "title" | "description" | "published_at" | "topics">;
+const { title, description, published_at, topics } = Astro.props;
 const { pathname } = Astro.url;
 ---
 
@@ -19,6 +17,7 @@ const { pathname } = Astro.url;
       <Layout>
         <Header currentPath={pathname.split("/")[1] || ""} client:load />
         <MainContainer>
+          <BlogInfo title={title} published_at={published_at} topics={topics} />
           <div class="znc">
             <slot />
           </div>

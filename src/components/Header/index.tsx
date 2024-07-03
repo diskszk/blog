@@ -1,11 +1,11 @@
 import { GitHubLogoIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import {
   Flex,
-  Heading,
   IconButton,
   TabNav,
   Box,
   Button,
+  Text,
 } from "@radix-ui/themes";
 import { useCallback, useState, type KeyboardEvent } from "react";
 import { siteConfig } from "@/siteConfig";
@@ -105,9 +105,8 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
                   width={iconSize}
                 />
               </Box>
-              <Heading
+              <Text
                 align="center"
-                as="h1"
                 size={{
                   initial: "6",
                   sm: "8",
@@ -115,7 +114,7 @@ export const Header: React.FC<Props> = ({ currentPath }) => {
                 weight="regular"
               >
                 {siteConfig.siteName}
-              </Heading>
+              </Text>
             </a>
           </Button>
         </Flex>

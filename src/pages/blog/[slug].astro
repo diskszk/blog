@@ -22,6 +22,6 @@ const content = markdownToHtml(entry.body, {
 });
 ---
 
-  <BlogLayout title={entry.data.title} description={entry.data.description || ""}>
+  <BlogLayout {...entry.data}>
     <Fragment set:html={content} />
   </BlogLayout>
