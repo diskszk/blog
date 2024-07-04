@@ -44,10 +44,9 @@ export const BlogInfo: React.FC<Props> = ({ title, topics, published_at }) => {
         >
           <ul>
             {topics.map((tag, index) => (
-              <li>
+              <li key={index}>
                 <Tag
                   href={`/tags/${tag}`}
-                  key={index}
                   size="2"
                   tag={tag}
                 />
