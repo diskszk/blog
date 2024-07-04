@@ -1,6 +1,6 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { mkdir, readdir, writeFile } from "node:fs/promises";
+import { mkdir, access, writeFile } from "node:fs/promises";
 import { deleteAsync } from "del";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -50,7 +50,7 @@ ignorePublish: false
 export const tmpDir = path.join(path.dirname(__filename), "/tmp");
 export async function setup() {
   try {
-    await readdir(tmpDir);
+    await access(tmpDir);
   } catch {
     await mkdir(tmpDir);
   }

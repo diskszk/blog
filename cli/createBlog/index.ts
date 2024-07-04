@@ -23,6 +23,15 @@ async function createNewFile(
   }
 }
 
+async function isNewFile(filePath: string): Promise<boolean> {
+  try {
+    await access(filePath);
+    return false;
+  } catch {
+    return true;
+  }
+}
+
 export async function createBlog(
   targetDir: string,
   slug: string,
@@ -41,11 +50,10 @@ export async function createBlog(
     process.exit(1);
   }
 
-  try {
-    await access(join(targetDir, `${slug}.md`));
-    console.error(`${targetDir}/${slug}.md  exists`);
-  } catch {
-    /* empty */
+  const isNew = await isNewFile(join(targetDir, `${slug}.md`));
+  if (!isNew) {
+    console.error(`${targetDir}/${slug}.md alerady exists`);
+    process.exit(1);
   }
 
   const publishedAt = format(new Date(), "yyyy-MM-dd");

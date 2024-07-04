@@ -14,7 +14,7 @@
     "check:type": "tsc --noEmit",
     "test": "vitest run src",
     "test:cli": "vitest run cli --exclude cli/**/integration-test/*.{spec,test}.ts",
-    "test:cli:integrate": "vitest run cli/convertFrontmatter/integration-test/index.spec.ts",
+    "test:cli:integrate": "vitest run cli/**/integration-test/index.spec.ts",
     "test:ci": "pnpm test && pnpm test:cli && pnpm test:cli:integrate",
     "ci": "pnpm lint && pnpm test:ci && pnpm check:type && astro check",
     "build": "astro build",
