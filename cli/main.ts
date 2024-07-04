@@ -1,29 +1,31 @@
-import path from "node:path";
-import { program } from "commander";
+import { join } from "node:path";
+import { Command } from "commander";
 import { convertForntmatter } from "./convertFrontmatter";
 import { __dirname } from "./util";
-program.parse(process.argv);
+import { createBlog } from "./createBlog";
 
-const target = program.args[0];
+const program = new Command();
+program.name("blog-cli").version("1.0.0", "-v, --version");
 
-switch (target) {
-  case "convert-frontmatter": {
-    const dirPath = program.args[1];
-    if (!dirPath) {
-      console.error("引数に誤りがあります");
-      process.exit(1);
-    }
+program
+  .command("convert-frontmatter <path>")
+  .description("Convert frontmatter of markdown file")
+  .action(async (path) => {
+    const targetDir = join(__dirname, path);
 
-    const targetDir = path.join(__dirname, dirPath);
-
-    console.log(targetDir);
-
+    console.log("run: blog-cli/convert-frontmatter");
+    console.log("target directory: ", targetDir);
     await convertForntmatter(targetDir);
+    return;
+  });
 
-    break;
-  }
-  default: {
-    console.error("引数に誤りがあります");
-    process.exit(1);
-  }
-}
+program
+  .command("create <path> <slug>")
+  .description("Create a markdown file")
+  .action(async (path, slug) => {
+    const targetDir = join(__dirname, path);
+
+    await createBlog(targetDir, slug);
+  });
+
+program.parse(process.argv);
