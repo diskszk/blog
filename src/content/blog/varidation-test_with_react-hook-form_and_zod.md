@@ -168,7 +168,7 @@ export const EmptyTitle: Story = {
 
 ## テスト作成
 
-Storybook をテストに使うので、以下のライブラリを追加します。  
+Storybook をテストに使うので、次のライブラリを追加します。  
 `$ yarn add -D @storybook/jest @storybook/testing-library`  
 
 テストファイルを作成します。

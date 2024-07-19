@@ -23,7 +23,9 @@
     "build-storybook": "storybook build",
     "blog-cli:create": "tsx cli/main.ts create ../src/content/blog",
     "blog-cli:convert-frontmatter": "tsx cli/main.ts convert-frontmatter ../src/content/blog",
-    "textlint:check": "textlint --dry-run src/content/blog/*.md"
+    "textlint:check": "textlint --dry-run src/content/blog",
+    "textlint:diff": "textlint --fix --dry-run --format diff src/content/blog",
+    "textlint:fix": "textlint --fix src/content/blog"
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",

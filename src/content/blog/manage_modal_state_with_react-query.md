@@ -98,7 +98,7 @@ React コンポーネントあるいはカスタムフック関数内でこの�
 https://tanstack.com/query/v4/docs/react/reference/QueryClient#queryclientgetquerydata
 
 
-また、先述した react-query でデータ fetch を行う場合には、main.tsx の QueryClient に `defaultOptions,queries.enabled: false` の設定を書かず、取りだすときに以下のように設定すればデータ fetch は抑制されます。
+また、先述した react-query でデータ fetch を行う場合には、main.tsx の QueryClient に `defaultOptions,queries.enabled: false` の設定を書かず、取りだすときに次のように設定すればデータ fetch は抑制されます。
 ``` tsx
 const data = useQuery(["query-key"], {
   enabled: false,
@@ -152,7 +152,7 @@ type ModalState = {
 
 また、モーダルを開く際には何かしらの文言が設定されていたほうがいいので、モーダルを開く際に同時に表示する文言も設定します。
 
-カスタムフックの戻り値の型が以下のようになれば OK です。
+カスタムフックの戻り値の型が次のようになれば OK です。
 
 ``` ts 
 type ReturnType = {

@@ -12,13 +12,11 @@ description:
 使用しているアプリやツールの説明とインストール方法を記していきます。
 
 ### スペック
-<!-- textlint-disable -->
-OS: macOS Ventura
-shell: zsh
-キーボード： US 配列
-<!-- textlint-enable -->
+- OS: macOS Ventura
+- shell: zsh
+- キーボード： US 配列
 
-:::note warn
+:::message alert
 ツールをダウンロードする際に入力したコマンドを載せていますが、公式サイトと照らし合わせて入力するようにしてください。
 :::
 
@@ -37,7 +35,7 @@ https://support.apple.com/ja-jp/guide/japanese-input-method/jpim10265/mac
 
 ライブ変換を ON にしていると、日本語を入力中に自動で漢字に変換します。使い勝手が微妙なので OFF にしています。
 
-一度日本語入力モードに切り替え、画面右上のメニューバーから「あ」をクリックし、「ライブ変換」のチェックを外します。
+一度、日本語入力モードに切り替え、画面右上のメニューバーから「あ」をクリックし、「ライブ変換」のチェックを外します。
 
 ![image.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/639130/d1c1d835-415b-1991-1c7a-cb55411c038b.png)
 
@@ -68,7 +66,7 @@ https://zenn.dev/prgskater/articles/00bfb00bcf3df3
 デフォルトでは `スクリーンショット 2023-11-14 15.41.08` のように `スクリーンショット` + `日付` + `時刻` になっています。
 全角文字が入っていると悪いことが起きそうなのと、見分けやすいようにスクリーンショットを撮影した際に付けられるファイル名を変更します。
 
-ターミナルアプリを開き以下のコマンドを入力します。
+ターミナルアプリを開き次のコマンドを入力します。
 
 ```sh: shell
 // ファイル名の日本語での`スクリーンショット`の部分を `screenshot` へ変更する
@@ -77,7 +75,7 @@ $ defaults write com.apple.screencapture name screenshot
 $ defaults write com.apple.screencapture include-date -bool false
 ```
 
-結果として以下のようなファイル名になります。
+結果として次のようなファイル名になります。
 - screenshot
 - screenshot 1
 - screenshot 2
@@ -107,11 +105,11 @@ https://karabiner-elements.pqrs.org/docs/getting-started/installation/
 
 #### 「caps lock」キーを「control」キーにする
 
-1. `Karabiner-Elements` を開き「Simple Modifications」の「Add item」をクリックします
+1. `Karabiner-Elements` を開き「Simple Modifications」の「Add item」をクリックする
 
 ![スクリーンショット 2023-11-14 16.03.49.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/639130/75a72d80-46ed-cf9a-c10e-48389d87782d.png)
 
-1. 「Modifier keys」から、2 つあるセレクトボックスの左に「caps_lock」と、右に「left_control」を選択します
+1. 「Modifier keys」から、2 つあるセレクトボックスの左に「caps_lock」と、右に「left_control」を選択する
 
 ![スクリーンショット 2023-11-14 16.05.10.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/639130/640d0144-185a-abfb-9a68-0ed3ad56403c.png)
 
@@ -291,11 +289,11 @@ $ asdf global yarn latest
 
 macOS のデフォルトシェルである `zsh` を使っています。
 
-:::note warn
+:::message alert
 筆者は shell に zsh を使っています。 bash など他の shell を使っている場合参照するファイルや記法が異なります。
 :::
 
-以下のコマンドで現在使っているシェルが何であるかを確認できます。
+次のコマンドで現在使っているシェルが何であるかを確認できます。
 
 ```sh: shell
 $ echo $SHELL                                                                              
