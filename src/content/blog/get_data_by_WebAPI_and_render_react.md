@@ -5,12 +5,10 @@ published: true
 published_at: '2023-11-21T18:12:26+09:00'
 description: 
 ---
-get_data_by_WwbAPI_and_render_react
-<!-- textlint-disable -->
-:::note info
+
+:::message
 React の公式ドキュメントが更新されて得た新しい情報から記事のアップデートをしました。
 :::
-<!-- textlint-enable -->
 
 https://qiita.com/diskszk/items/6549584a3843781aac79
 
@@ -102,9 +100,9 @@ const PostList: React.FC = () => {
 コードはさておき、なぜレンダリングされないのかを処理の順番を追って見ていきます。
 
 こちらは単に非同期通信処理のハンドリングがされていないからです。
-コンポーネント内での処理の順番としては以下のようになります。
+コンポーネント内での処理の順番としては次のようになります。
 
-1. fetchPosts 関数を呼び出し'fetching-start'のログが吐かれ、WebAPI との通信が始まります
+1. fetchPosts 関数を呼び出し'fetching-start'のログが吐かれ、WebAPI との通信が始まる
 1. 画面がレンダリングされる
 1. WebAPI との通信が終わり、'fetching-finish'のログが測れる
 
@@ -164,6 +162,8 @@ const PostList: React.FC = () => {
 
 処理の順番を追っていきます。
 
+<!-- textlint-disable -->
+
 1. 初回レンダリング処理が走ります
   - この時点で画面にレンダリングされるのは Loading..。です
 1. 初回レンダリング後に useEffect 内部の処理が始まります
@@ -173,7 +173,9 @@ const PostList: React.FC = () => {
 1. React コンポーネントの useEffect に戻り、取得した投稿データをローカル変数 posts にセットします
 1. useEffect 内で画面に表示するデータが変わったので再レンダリング処理が始まります
 
-開発者コンソールを見てみると以下のようになります。
+<!-- textlint-enable -->
+
+開発者コンソールを見てみると次のようになります。
 
 ![ 2021-09-25 16.37.42.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/639130/337913c2-0fa0-19dc-1ce5-d2e8a8e665b4.png)
 

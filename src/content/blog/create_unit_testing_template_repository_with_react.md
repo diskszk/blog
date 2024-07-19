@@ -8,9 +8,8 @@ description:
 
 ## はじめに
 フロントエンドの自動テストまわりの記事を書くことが増えてきたので、 react + 自動テストのテンプレートリポジトリを作ろうと思い至りました。
-<!-- textlint-disable -->
-また、毎回環境構築から開始すると記事を書くことのハードルが高くなるので、テンプレートを活用してさらに記事の記事の更新頻度を高められたらと思います。
-<!-- textlint-enable -->
+
+また、毎回環境構築から開始すると記事を書くことのハードルが高くなるので、テンプレートを活用してさらに記事の更新頻度を高めていきたいです。
 
 ## テンプレートリポジトリとは
 既存のリポジトリをテンプレート化して、あなたや他の人が、同じディレクトリ構造、ブランチ、ファイルを持つ新しいリポジトリ作成できるようにできる GitHub の機能です。
@@ -19,7 +18,7 @@ description:
 
 https://github.com/diskszk/react-testing-boilerplate
 
-今回作成したテンプレートリポジトリは以下のライブラリを使用しており、 フロントエンドの開発環境および、自動テスト環境を備えています。
+今回作成したテンプレートリポジトリは次のライブラリを使用しており、 フロントエンドの開発環境および、自動テスト環境を備えています。
 
 ```json
 {
@@ -56,7 +55,7 @@ https://docs.github.com/ja/repositories/creating-and-managing-repositories/creat
 
 GitHub Cli を使う場合は `--template <repository>` とコマンド入力すれば　GitHub 上にテンプレートを元にしたリポジトリを作成できます。
 
-例として、今回私が作成したテンプレートリポジトリを使う場合は以下のコマンドになります。
+例として、今回私が作成したテンプレートリポジトリを使う場合は次のコマンドになります。
 
 ```bash
 $ gh repo create my-repo --private --template https://github.com/diskszk/react-testing-boilerplate.git
