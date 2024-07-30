@@ -2,9 +2,13 @@
 import { PageLayout } from "@/layouts";
 import { BlogList } from "@/partials";
 import { siteConfig } from "@/siteConfig";
+import { OtherEntries } from "@/partials/OtherEntries";
+import { fetchZennEntries } from "@/remote";
 import { getBlogEntries } from "./_getBlogEntries";
 
 const blogEntries = await getBlogEntries();
+
+const fetchZennEntriesResult = await fetchZennEntries();
 ---
   <PageLayout title="トップページ" description=`${siteConfig.siteName}です。フロントエンドを中心に学んだことを書いていきます。`>
 
@@ -13,5 +17,9 @@ const blogEntries = await getBlogEntries();
     <section>
       <h2>ブログ一覧</h2>
       <BlogList entries={[...blogEntries]} />
+      {fetchZennEntriesResult.isOk() && fetchZennEntriesResult.value && (
+        <h2>そのほかの記事一覧</h2>
+          <OtherEntries entries={fetchZennEntriesResult.value} />
+      )}
     </section>
   </PageLayout>
