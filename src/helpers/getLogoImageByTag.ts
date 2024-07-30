@@ -66,6 +66,7 @@ export function getLogoImageByTag(tag: string): {
       };
     }
     case "nodejs":
+    case "node":
     case "node.js": {
       return {
         src: "/assets/logo/nodejs-icon.svg",
