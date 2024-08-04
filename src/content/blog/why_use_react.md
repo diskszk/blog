@@ -137,5 +137,4 @@ const App: React.FC<{
 
   <p>{props.name}は{props.age}歳</p>
 )
-￥
 ```
