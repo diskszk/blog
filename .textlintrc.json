@@ -16,6 +16,9 @@
         "max": 7
       }
     },
+    "ja-space-between-half-and-full-width": {
+      "space": "always"
+    },
     "@proofdict/proofdict": {
       "dictURL": "https://azu.github.io/proof-dictionary/"
     }
