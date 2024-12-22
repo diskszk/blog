@@ -14,7 +14,8 @@
       },
       "max-kanji-continuous-len": {
         "max": 7
-      }
+      },
+      "ja-no-weak-phrase": false
     },
     "ja-space-between-half-and-full-width": {
       "space": "always"
