@@ -17,7 +17,6 @@ import stylisticPluginJSX from "@stylistic/eslint-plugin-jsx";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 
-/** @type {import("eslint").Linter.FlatConfig[]} */
 export default [
   js.configs.recommended,
   ...eslintPluginAstro.configs["flat/recommended"],
@@ -79,13 +78,14 @@ export default [
       "@stylistic/jsx/jsx-newline": ["error", { prevent: true }],
       "@stylistic/jsx/jsx-indent": ["error", 2],
       "@stylistic/jsx/jsx-indent-props": ["error", 2],
+      "@typescript-eslint/explicit-module-boundary-types": "error",
     },
   },
   {
     // import
     files: ["{src,cli}/**/*.{ts,tsx,astro}"],
     plugins: {
-      import: importPlugin,
+      "import": importPlugin,
       "unused-imports": unusedImportsPlugin,
       "@stylistic": stylistic,
     },
@@ -96,7 +96,7 @@ export default [
         "error",
         {
           "newlines-between": "never",
-          pathGroups: [
+          "pathGroups": [
             {
               pattern: "@/**",
               group: "external",
