@@ -1,26 +1,37 @@
-import { Flex } from "@radix-ui/themes";
-import type { ZennArticle } from "@/remote";
+import { Flex, Skeleton } from "@radix-ui/themes";
+import { useQuery } from "@tanstack/react-query";
+import { fetchZennEntries } from "@/remote";
 import { ZennEntriy } from "@/components";
+import { queryClient } from "@/store";
 
-type Props = {
-  entries: ZennArticle[];
-};
+export const OtherEntries: React.FC = () => {
+  const { data, isLoading, error } = useQuery({ queryKey: ["zennEntries"], queryFn: fetchZennEntries }, queryClient);
 
-export const OtherEntries: React.FC<Props> = ({ entries }) => {
+  if (error) {
+    return <div>{error.message}</div>;
+  }
+
+  const entries = data?.isOk() ? data.value : [];
+
   return (
-    <Flex
-      asChild
-      direction="column"
-      gapY="8px"
+    <Skeleton
+      height="80px"
+      loading={isLoading}
     >
-      <ul>
-        {entries.map((entry) => (
-          <ZennEntriy
-            entry={entry}
-            key={entry.slug}
-          />
-        ))}
-      </ul>
-    </Flex>
+      <Flex
+        asChild
+        direction="column"
+        gapY="8px"
+      >
+        <ul>
+          {entries.map((entry) => (
+            <ZennEntriy
+              entry={entry}
+              key={entry.slug}
+            />
+          ))}
+        </ul>
+      </Flex>
+    </Skeleton>
   );
 };

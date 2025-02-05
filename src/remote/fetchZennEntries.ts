@@ -16,7 +16,7 @@ type Response = {
 export async function fetchZennEntries(): Promise<
   Result<ZennArticle[], Error>
 > {
-  const respose = await fetch(`${ENDPOINT}?username=${USERNAME}`);
+  const respose = await fetch(`${ENDPOINT}?username=${USERNAME}&order=latest`);
 
   if (respose.ok) {
     const data = (await respose.json()) as Response;
