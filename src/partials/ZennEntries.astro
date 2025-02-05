@@ -1,0 +1,14 @@
+---
+import { fetchZennEntries } from "@/remote";
+import { OtherEntries } from "@/partials/OtherEntries";
+export const prerender = false;
+
+const fetchZennEntriesResult = await fetchZennEntries();
+
+const isError = fetchZennEntriesResult.isErr() ? true : false;
+
+const entries = fetchZennEntriesResult.isOk() ? fetchZennEntriesResult.value : [];
+---
+  <h2>そのほかの記事一覧</h2>
+    {isError && <p>記事の取得に失敗しました。</p>}
+    <OtherEntries entries={entries} />

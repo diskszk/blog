@@ -16,4 +16,5 @@ export default defineConfig({
   },
   // TODO: カスタムドメインを設定する
   site: "https://blog-cfq.pages.dev",
+  output: "hybrid",
 });
