@@ -18,6 +18,7 @@ import reactHooksPlugin from "eslint-plugin-react-hooks";
 import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 
 export default [
+  { ignores: ["node_modules", "dist", "build", "cli/dist"] },
   js.configs.recommended,
   ...eslintPluginAstro.configs["flat/recommended"],
   ...eslintPluginAstro.configs["flat/jsx-a11y-recommended"],
