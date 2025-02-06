@@ -1,12 +1,16 @@
 ---
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 import { PageLayout } from "@/layouts";
 import "zenn-content-css";
 import { siteConfig } from "@/siteConfig";
 
 const entry = await getEntry("profile", "me");
 
-const { Content } = await entry.render();
+if (!entry) {
+  throw new Error("Entry not found");
+}
+
+const { Content } = await render(entry);
 ---
 
   <PageLayout title="プロフィール" description={`${siteConfig.author}のプロフィールページです。`}>

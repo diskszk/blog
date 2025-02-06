@@ -27,7 +27,8 @@ yarn add @radix-ui/themes
 yarn add @radix-ui/react-icons
 ```
 
-``` main.ts
+``` ts
+// main.ts
 + import '@radix-ui/themes/styles.css';
 ```
 
@@ -114,7 +115,7 @@ https://www.radix-ui.com/themes/docs/theme/breakpoints
 
 コンポーネントに直接各ブレークポイントを超えた際のスタイルを適用できるので書いていきます。
 
-``` diff_tsx
+``` tsx
 <header>
 -  <Flex id="header-container" align="center" height="112px" justify="between" pt="8px" px="24px">
 +  <Flex id="header-container" align="center" justify="between" pt="8px" px="24px"
@@ -145,7 +146,7 @@ PC ビューの時は表示し、モバイルビューでは表示しないよ�
 width が `md (1024px)` より小さい場合に `navigation-container` へ `display: "none"` を追加します。  
 `header-container` の height と同様に Radix UI の　Breakpoints を使ってそれぞれの値を設定します。
 
-``` diff_tsx
+``` tsx
 <Flex id="navigation-container" align="center" gap="16px"
 +    display={{
 +      initial: "none",
@@ -168,7 +169,7 @@ PC ビュー
 
 `header-container` の子要素として、 `heder-logo-container` の前(左に表示する) へ `hamburger-menu-icon-container` を作成します。
 
-``` diff_tsx
+``` tsx
 + import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 
 /* 省略 */
