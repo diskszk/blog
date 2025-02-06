@@ -1,6 +1,6 @@
 # Tech Blog
 
-<!-- urlを貼る -->
+https://blog-cfq.pages.dev
 
 ## 技術スタック
 
@@ -11,10 +11,11 @@ Astro で作成した Web フロントエンドに、 Markdown で試筆した�
 | 言語・ライブラリ | 使用バージョン |
 | ---------------- | -------------- |
 | Node             | v20.9.X        |
-| TypeScript       | v5.4.X         |
-| Astro            | v4.10.X        |
-| React            | v18.3.X        |
-| vitest           | v1.6.X         |
+| TypeScript       | v5.7.X         |
+| Astro            | v5.2.X         |
+| React            | v19.0.X        |
+| vite             | v5.4.X        |
+| vitest           | v3.0.X         |
 
 ## Setup
 
