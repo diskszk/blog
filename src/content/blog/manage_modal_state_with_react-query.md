@@ -38,7 +38,8 @@ PC: mac(ver.11.7.1)
 
 Provider を設定する。
 
-``` main.tsx
+``` tsx
+/// main.tsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
@@ -69,7 +70,7 @@ QueryClient インスタンスを作成するときに、 `defaultOptions.querie
 
 #### データを設定する
 
-``` type.tsx
+``` tsx
 type UserState = {
   name: string;
 };
