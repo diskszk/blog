@@ -2,6 +2,8 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [react()],
@@ -14,6 +16,10 @@ export default defineConfig({
     },
     plugins: [vanillaExtractPlugin()],
   },
+
   // TODO: カスタムドメインを設定する
   site: "https://blog-cfq.pages.dev",
+
+  output: "static",
+  adapter: cloudflare(),
 });
